@@ -9,7 +9,18 @@ export class NotificationProducer {
   ) {}
 
   async userRegistered(data: any) {
-    console.log('ADDING JOB=============', data);
-    await this.queue.add('USER_REGISTERED', data);
+    console.log('ADDING JOB TO QUEUE');
+    await this.queue.add('USER_REGISTERED', 
+      data,
+      {
+        attempts: 3,
+        backoff: {
+          type: 'exponential',
+          delay: 3000,
+        },
+        removeOnComplete: true,
+        removeOnFail: 500,
+      }
+    );
   }
 }

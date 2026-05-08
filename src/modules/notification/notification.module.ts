@@ -2,7 +2,7 @@ import { BullModule } from '@nestjs/bullmq';
 import { Module } from '@nestjs/common';
 import { TestController } from './notification.controller';
 import { NotificationProducer } from './notification.producer';
-import { NotificationConsumer } from './notification.consumer';
+import { NotificationProcessor } from './notification.processor';
 
 @Module({
   imports: [
@@ -11,6 +11,6 @@ import { NotificationConsumer } from './notification.consumer';
     }),
   ],
   controllers: [TestController],
-  providers: [NotificationProducer, NotificationConsumer],
+  providers: [NotificationProducer, NotificationProcessor],
 })
 export class NotificationModule {}

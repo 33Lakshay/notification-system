@@ -16,3 +16,12 @@
 "email": "[test@gmail.com](mailto:test@gmail.com)",
 "name": "Lakshay"
 }
+
+
+# Day 2 Flow
+
+1. API triggers producer
+2. Producer pushes job into Redis queue
+3. Worker listens to queue
+4. Worker processes jobs
+5. BullMQ retries failed jobs automatically
