@@ -25,3 +25,15 @@
 3. Worker listens to queue
 4. Worker processes jobs
 5. BullMQ retries failed jobs automatically
+
+# Day 3 Learnings
+
+1. Persisted notifications in database
+2. Added notification lifecycle states:
+   - PENDING
+   - PROCESSING
+   - SENT
+   - FAILED
+3. Worker updates DB status during processing
+4. Retry counts are tracked
+5. Queue payload now contains notificationId
